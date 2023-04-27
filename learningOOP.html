@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="homePage.css">
+    <title>OOP</title>
+</head>
+
+<body>
+
+    <div class="head">
+        <h1>Alex Li's AP CS Portfolio</h1>
+    </div>
+    <!--Top bar for navigating between pages-->
+    <div>
+        <ul id="navBar">
+            <li id="homepage"><a href="homePage.html">Home</a></li>
+            <li id="Arrays"><a href="learningArrays.html">Arrays</a></li>
+            <li id="OOP"><a href="learningOOP.html">Object Oriented Programming (OOP)</a></li>
+            <li id="Recursion"><a href="learningRecursion.html">Recursion</a></li>
+            <li id="myWork"><a href="myWork.html">My Works</a></li>
+            <li id="Citations"><a href="citations.html">Citations</a></li>
+
+        </ul>
+    </div>
+    <div class="mainBody">
+        <div>
+            <h1>Object Oriented Porgraming, Inheritance, and Polymorphism</h1>
+        </div>
+        <!-- What is OOP?-->
+        <div>
+            <h2> What is OOP</h2>
+            <p>OOP is object oriented programming. It involves the usage of classes and objects. A class is a template
+                for an object, something like a generic blueprint for a building or item. A class will have attributes
+                and methods. Attributes are characteristics or properties of the class. For example, if we used a human
+                as an example for a class, an attribute of the human class could be height, weight, or eye color. A
+                method, or behaviour, is an action or set of actions that can be accomplished by the class. Back to the
+                human case, a human can run, it can grow, and it can eat. These would all be examples of methods. An
+                object is something that is created from the class. Looking back to the human example. We can say that
+                there is a general human class, one that can apply for all of us. We can walk, we can grow, and we can
+                eat. However, we might have different attributes, like varying heights or weights.</p>
+            <p>All objects take up a certain portion of memory in the system. This allows them to be located and
+                accessed, similar to variables. All objects will have behaviours, which are its methods, and state,
+                which is its properties, or variables. To compare classes and objects, let's look at a classic example,
+                the cookie cutter and the cookie. Cutting dough using a cookie cutter makes a cookie. The cookie cutter
+                would be the class, and the cookie would be the object. You can create many cookies, but they all come
+                from the same cookie cutter you just used. </p>
+            <p>One other property of classes is their static methods. Static methods are part of a class, but they are
+                not part of the objects they create. In the cookie cutter example, this would be how the cookie cutter
+                is sharp, but the cookie is not. This gives the static method the interesting property that it does not
+                need an object to be created to run. </p>
+
+            <p>Now, let’s look at OOP from a computer programming perspective. First of all, there can only be one
+                public class defined in every java file. This class will have the same name as the file, and should be
+                capitalized. </p>
+
+            <pre>
+            //Class name must match the file name. In this case, the file is called Human.java
+            public Human{
+    
+                //Instance Variables
+                private int height;
+                private double weight;
+                private String name;
+            
+            
+                //Class constructor
+                public Human(int h, double w, String n){
+                    height = h;
+                    wieght = w;
+                    name = n;
+                }
+
+                //Class constructor with only the name
+                public Human(String name){
+                    Human(100,50,name);
+                }
+            
+                //Default no argument constructor
+                public Human(){
+                    Human(100,50,"No Name");
+                }
+            
+                //Class methods
+                public void doSomething(){
+                    System.out.println("I did something.");
+                }
+            
+                public void eat(){
+                    //Code for eating...
+                }
+            }
+        </pre>
+            <p>When declaring attributes, or instance variables for your class, they should be set to private to prevent
+                access from outside of the class unless allowed by get and set methods. Get and set methods are methods
+                which are specifically designed to only change or access the value of an instance variable. On the other
+                hand, methods should be declared public, unless they are helper methods which should not be used outside
+                of the class. </p>
+
+            <p>Another important thing about classes is their class constructor. A class constructor is a method which
+                creates an instance of the class, or an object. All classes should have a constructor. The constructor
+                should declare the values of the instance variables, and the instance variables should not be
+                initialized with values. The constructor can take specific values so that the initial values of the
+                constructor can be changed. </p>
+
+            <p>What about an object? Earlier, it was stated that an object is the instance of a class. An object is
+                created using a class constructor, and can access all the public methods available in the class. An
+                object should be declared like a variable, with the type being the name of the class. It is created by
+                using the new keyword, followed by the class constructor. .</p>
+            <pre>
+            //Here we create an object using the Human class constructor
+            Human joe = new Human("Joe");
+        </pre>
+
+            <p>What is the benefit of using object oriented programming vs using procedural programming? Although object
+                oriented takes more time to write, it is much easier to organize your code, as each class can have a
+                specific job or function that they need to perform. This is especially important in large projects,
+                where multiple people have to collaborate together. Using object oriented programming allows the
+                programmers to separate the work easily and combine the final product together much more easily compared
+                to procedural programming.</p>
+
+        </div>
+        <!--Inheritance and Polymorphism-->
+        <div>
+            <h2>Inheritance and Polymorphism</h2>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+</body>

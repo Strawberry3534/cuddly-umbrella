@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="homePage.css">
+</head>
+
+<body>
+    <div class="head">
+        <h1>Alex Li's AP CS Portfolio</h1>
+        <title>Recursion</title>
+    </div>
+
+    <!--Top bar for navigating between pages-->
+    <div>
+        <ul id="navBar">
+            <li id="homepage"><a href="homePage.html">Home</a></li>
+            <li id="Arrays"><a href="learningArrays.html">Arrays</a></li>
+            <li id="OOP"><a href="learningOOP.html">Object Oriented Programming (OOP)</a></li>
+            <li id="Recursion"><a href="learningRecursion.html">Recursion</a></li>
+            <li id="myWork"><a href="myWork.html">My Works</a></li>
+            <li id="Citations"><a href="citations.html">Citations</a></li>
+
+        </ul>
+    </div>
+    <div class="mainBody">
+        <div>
+            <h1>Recursion</h1>
+        </div>
+        <div>
+            <p>Recursion is the act of a method invoking or calling itself. Recursion is used in methods which use
+                divide and conquer, a process in which a problem is split into smaller, simpler problems repeatedly
+                until they become either easier or trivial to solve. Some examples of this include quicksort, binary
+                search, and mergesort. </p>
+            <p>A recursive method can be split into two parts; a recursive case and a base case. A recursive case is one
+                in which a method calls itself to solve a problem, but the problem will be simpler in most cases. A base
+                case is the final case which ends the recursive calls, ending the recursion process. All recursive
+                methods must have a base case, otherwise, they will be stuck in an infinite loop, causing a stack
+                overflow error. It is called a stack overflow error because Java uses a data structure called a stack to
+                keep track of recursive calls. When a base case is never reached, the stack will reach its limit,
+                causing it to overflow. When a recursive method reaches its base case, it will return a value which can
+                be used in the 2nd last call, and the value in the 2nd last call can be used in the 3rd last call, etc…
+            </p>
+            <pre>
+                //pseudocode for a basic recursive function
+                recursiveFunction(int num):
+                    if num is base case:
+                        return some number
+                    
+                    return recursiveFunction(num + an increment)
+            </pre>
+            <p>
+                Here we have a method which takes an integer. If the number is equivalent to our base case, we return.
+                Something about going up the stack. The other line is the recursive call, where the parameter is
+                slightly changed so that it becomes closer to the base case.
+            </p>
+            <p>
+                What are the benefits and disadvantages of recursive methods? It was previously stated that recursive
+                methods can be used to make problems simpler, and they can also be used as a replacement as iterative
+                methods. Let's use an example of binary search. In binary search, the while loop can be replaced with
+                a recursive statement or two.
+            </p>
+            <pre>
+                //Binary search recursive implementation
+                public static int binarySearch(int target, int[] arr, int low, int high){
+                    if (high >= 1){
+                        int mid = (low+high)/2;
+
+                        // target is at mid
+                        if (arr[mid] == target)
+                            return mid;
+                        
+                        // target is left of mid
+                        if (arr[mid] > target)
+                            return binarySearch(target, arr, low, mid - 1);
+
+                        // target is right of mid
+                        return binarySearch(target, arr, mid + 1, high)
+                    }
+                }
+            </pre>
+            <p>
+                Recursion can also be used in place of many other iterative algorithms, such as calculating
+                factorials.The factorial is known as the product of all the positive integers less than
+                or equal the integer. For example, 5 factorial, or 5!, would be 5*4*3*2*1. This can also be represented
+                algebraically. n! = n*(n-1)*(n-2)...*2*1, or n! = n * (n-1)!. We will be
+                using the latter definition in our recursive implementation
+                Let's show the code and then explain how it works.
+            </p>
+            <pre>
+                //Factorial recursive implementation
+                public static int factorial(int num){
+                    if (num &lt;= 1){
+                        return 1;
+                    }
+                    
+                    return num * factorial(num -1);
+                }
+
+                public static void main(String[] args){
+                    factorial(5); // returns 120
+                }
+            </pre>
+            <p>
+                Here, we call the factorial method, and our num is 5. Our method doesnt know what 5! is, so but it knows
+                that the result will be 5 * 4!, so it tries to solve for 4!.
+                When it tries to solve for 4!, it cant do that either, so it solves for 4 * 3!. This process repeats
+                until we reach 1!. When num is 1, we know that 1! is 1, so we return it.
+                Now, we can solve for 2!, which is 2*1 = 2. This allows us to solve for 3!, which is 3*2 = 6.
+                We can also solve for 4!, 4*6 = 24, and finally, 120, 5*24 = 120. What we have just down is call
+                recursive methods until we reach a base case, and then once the base case is reached, we go up the stack
+                until we reach the initial call.
+            </p>
+            <p>
+                Another common usage of recursion is it's usage in sorting algorithms. Almost every, if not all of the
+                more efficient sorting algorithms implement some sort of recursion. Let's look at the simplest one,
+                merge sort.Like binary search, it is a divide and conquer algorithm, which means it seperates a large
+                problem into smaller problems until they become simpler or trivial to solve. Merge sort halves arrays
+                until they are of size of length 1, and then they merge back up while maintaining a sorted order.
+            </p>
+            <pre>
+    //Merge sort Java, taken from GeeksForGeeks
+    void merge(int arr[], int l, int m, int r)
+    {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+ 
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+ 
+        /*Copy data to temp arrays*/
+        for (int i = 0; i &lt; n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j &lt; n2; ++j)
+            R[j] = arr[m + 1 + j];
+ 
+        /* Merge the temp arrays */
+ 
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+ 
+        // Initial index of merged subarray array
+        int k = l;
+        while (i &lt; n1 && j &lt; n2) {
+            if (L[i] &lt;= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+ 
+        /* Copy remaining elements of L[] if any */
+        while (i &lt; n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+ 
+        /* Copy remaining elements of R[] if any */
+        while (j &lt; n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+ 
+    // Main function that sorts arr[l..r] using
+    // merge()
+    void sort(int arr[], int l, int r)
+    {
+        if (l &lt; r) {
+            // Find the middle point
+            int m = l + (r - l) / 2;
+ 
+            // Sort first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+ 
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+    }
+            </pre>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+</body>

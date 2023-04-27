@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="homePage.css">
+</head>
+
+<body>
+    <div class="head">
+        <h1>Alex Li's AP CS Portfolio</h1>
+        <title>Arrays</title>
+    </div>
+    <!--Top bar for navigating between pages-->
+    <div>
+        <ul id="navBar">
+            <li id="homepage"><a href="homePage.html">Home</a></li>
+            <li id="Arrays"><a href="learningArrays.html">Arrays</a></li>
+            <li id="OOP"><a href="learningOOP.html">Object Oriented Programming (OOP)</a></li>
+            <li id="Recursion"><a href="learningRecursion.html">Recursion</a></li>
+            <li id="myWork"><a href="myWork.html">My Works</a></li>
+            <li id="Citations"><a href="citations.html">Citations</a></li>
+
+        </ul>
+    </div>
+    <div class="mainBody">
+        <div>
+            <h1>Arrays, Arraylists, and Search/Sort Algorithms</h1>
+        </div>
+        <!--What are arrays section -->
+        <div>
+            <h2>Arrays</h2>
+            <p>Arrays are a variable type in java. They are not a primitive type of data, and their declaration is
+                similar to that of a class. An array must have a type that they store as only one kind of data can be
+                stored in one array. Arrays are useful when managing large amounts of data. Imagine you would need to
+                store all the numbers from 1 to 1000. It would be inefficient to make 1000 variables, and would also
+                take a long time. On the other hand, with an array, there is only one variable, and certain algorithms
+                could be used to easily fill up the array with the numbers from 1 to 1000.</p>
+            <p>In order to start using arrays, you first need to create an array. This is done by either using curly
+                brackets, and manually entering the elements, or using the new keyword, and writing the type of data you
+                want to store with square brackets to their right. Inside of the square brackets, enter the length of
+                the array. Unlike strings, the length of an array can not be dynamically changed. </p>
+            <pre>
+            //creating an integer array of length 10
+            int[] intArrTest = new int[10];
+
+            //creating an integer array by defining its elements
+            int[] intArr = {1,2,3,4,5,6};
+            //Trying to access a value at an index that does not exist will cause an index out of bounds error
+            int n = intArr[-1]; // no negative indices
+            int k = intArr[6]; // greater than largest index, which is 5.
+        </pre>
+            <p>In order to access the elements inside of an array, we need to use the square brackets. The syntax is as
+                follows. arrName[index], where arrName is the name of the array you wish to access, and index is the
+                given index that you wish to access. In an array, each value is given an index. The first value starts
+                at 0, the second value is 1, the third value is 2, and so on until the last element, whose index is the
+                length of the array minus 1. </p>
+            <p>One thing that goes hand in hand is the for loop. A for loop is a loop that can be used to perform a
+                certain set of operations a certain amount of times. This is especially useful for accessing and using
+                data in arrays. For example, if I were using an int array with all integers from 1 to 100 and I wanted
+                to sum all of those numbers. I could use a for loop that would iterate through all of the elements in
+                the array, and add their value to a variable. The code would look like this. </p>
+            <pre>
+            //printing an array using a for loop
+            public static void printArr(int[] arr){
+                for (int i = 0; i &lt; arr.length; i++){
+                    System.out.print(arr[i] + " ");
+                }
+            }
+
+            //printing with the toString() method
+            public static void printArr(int[] arr){
+                System.out.println(arr.toString());
+            }
+        </pre>
+            <p>If you haven’t guessed already, arrays can also hold arrays inside of them. This is called a 2D array,
+                because if each array inside of the larger array was separated row by row, it would be 2 dimensional.
+                There are two different kinds of 2D arrays, rectangular and ragged. A rectangular array is when each
+                array inside of the 2D array is of the same length. For example, if there are 5 arrays, with each having
+                7 elements, it would be a rectangular 2D array. A ragged array would be the opposite. Each of the arrays
+                inside of the 2D array would have varying lengths. For example, there are 5 arrays. The first array is
+                length 1, the second length 2, the third length 3, the fourth length 4, and the fifth length five. This
+                would be a ragged array because all of the lengths are varying. </p>
+            <p>In order to access elements inside of the 2D array, we need to use 2 pairs of square brackets. The first
+                pair determines which array you access, and the second pair determines which element inside of the array
+                is accessed. For example, in an array named arr with 8 1D arrays, each with length 7. The variable
+                arr[0][0] would allow you to access the value inside of the array inside of the first array, at the 0th
+                index inside of the array. The properties of the 2D array can also be expanded to any N dimensional
+                array. There is no limit to the amount of arrays that can be nested inside of each other. Of course,
+                that is on the premise that your computer has enough memory to handle an array that large. </p>
+            <pre>
+            //printing a 2D array. This method also works with ragged arrays
+            public static void print2D(int[][] arr){
+                for (int i = 0; i &lt; arr.length; i++){
+                    for (int j = 0; j &lt; arr[i].length; j++){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                    System.out.println();
+                }
+            }
+
+            //printing with the toString() method
+            public static void printArr2D(int[][] arr){
+                for (int[] arr1D : arr)
+                    System.out.println(arr1D.toString());
+            }
+        </pre>
+
+        </div>
+        <!--What are ArrayLists section-->
+        <div>
+            <h2>ArrayLists</h2>
+            <p>ArrayLists are a built-in class of Java. The class can be accessed by importing the java.util package.
+                ArrayLists are resizable arrays, meaning that unlike an array, the length of an ArrayList does not need
+                to be initialized by the user, and it will dynamically resize itself. The ArrayList does this by
+                checking if it is long enough to hold the required elements. If it is not large enough, the ArrayList
+                will double in length. </p>
+
+            <p>In order to use the ArrayLists class, we obviously need to learn how to declare it. Here is the format:
+                ArrayList&lt;Variable Type &gt; arrayName = new ArrayList&lt;Variable Type&gt;. As mentioned earlier,
+                the length of the ArrayList need not be initialized during declaration. Similarly to arrays, ArrayLists
+                can only hold one kind of data, which means no mix and mash. Another thing to note is that the elements
+                inside of the ArrayList are actually objects, not primitive types. This means that when declaring the
+                array, the wrapper class for the equivalent primitive type variable must be used. “Integer” for int,
+                “Float” for float, “Double” for double, and etc.. There should not be any worries when adding data, as
+                conversion between wrapper classes and primitive data types are done under the hood, meaning no
+                additional lines of code need to be added for conversion.</p>
+            <pre>
+            //Using an Integer ArrayList
+            ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;;
+            arr.add(1);
+            arr.add(2);
+            arr.add(3);
+            arr.set(0,4);
+            Collections.sort(arr);
+            arr.remove(1);
+            arr.clear();
+            int length = arr.size();
+
+            </pre>
+            <p>Due to the fact that ArrayLists are a class, the values of the ArrayList must be accessed or changed by
+                using methods, rather than square brackets. Here are the list of the methods, and what each method does.
+            </p>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Explanation</th>
+                </tr>
+                <tr>
+                    <td>get(int index)</td>
+                    <td>Gets the value in the ArrayList at a given index</td>
+                </tr>
+                <tr>
+                    <td>set(int index, value)</td>
+                    <td>Sets the value in the ArrayList at the given index to the value given</td>
+                </tr>
+                <tr>
+                    <td>add(value)</td>
+                    <td>Adds the given value to the end of the ArrayList</td>
+                </tr>
+                <tr>
+                    <td>remove(int index)</td>
+                    <td>Removes the element at the given index</td>
+                </tr>
+                <tr>
+                    <td>clear()</td>
+                    <td>Removes all elements from the ArrayList</td>
+                </tr>
+                <tr>
+                    <td>size()</td>
+                    <td>Returns the length of the array.</td>
+                </tr>
+                <tr>
+                    <td>sort()</td>
+                    <td>From the Collections class, but can be used by the ArrayList class because it is a subclass of
+                        Collections.<br> Sorts the ArrayList either numerically or alphabetically, depending on the
+                        types of variables inside the ArrayList. </td>
+                </tr>
+            </table>
+        </div>
+        <!--Searching and Sorting algorithms-->
+        <div>
+            <h2>Searching, Sorting, and Time Complexity</h2>
+            <p>Searching and sorting algorithms are algorithms which are specifically designed to handle arrays of data,
+                either to look through them or sort them. Before we go into algorithms, we first need to understand the
+                concept of time complexity. Time complexity is a way of categorizing algorithms but approximating how
+                the run time of the algorithm increases as the array of data you need to access or manipulate becomes
+                larger. We use the O(n), or Big O notation, to notate this. Some examples of different time complexities
+                are O(1), O(log n), O(n), O(log n * n), O(n^2),and O(n!). It is also important to separate the time
+                complexity of an algorithm into three different cases; best case, average case, and worst case. This can
+                help with determining what algorithm is best to use in a given scenario. </p>
+
+            <p>Something that is also of importance is that we drop all coefficients and lower degree terms. For
+                example, if an algorithm has two lines for every iteration of a for loop, and the for loop accesses
+                every element in the array, you could say it has a time complexity of O(2n). However, we do not care
+                about the coefficient of n, as we are looking to use the Big O notation as a way of quickly generalizing
+                our algorithm. So, this algorithm would be considered to run in O(n) time. </p>
+
+            <p>Let's first focus on searching. There are two sorts of search algorithms, linear search and binary
+                search. Linear search is a simple algorithm that simply checks every element inside the array to see if
+                that element is the one you are looking for. The algorithm will return the index of the element.
+                <br><br> Time Complexity:
+                <br>Best Case: O(1), happens when the target is the first element in the array
+                <br>Average Case: O(n), happens when target is in the middle of the array
+                <br>Worst Case : O(n), happens when the target is at the end of the array
+            </p>
+            <pre>
+        // code for linear search for integer array
+        public static int linearSearch(int target, int[] arr){
+            for( int i = 0; i &lt; arr.length ; i++){
+                if (arr[i] == target)
+                    return i;
+            }
+            return -1
+        }
+        </pre>
+
+            <p>The other version of a searching algorithm is the binary search. Binary search will only work on sorted
+                arrays, because it uses a different technique compared to that of linear search. First binary search
+                checks the value of the middle element. If the middle element is equal to the target, it returns the
+                index of the middle element.Otherwise, If the middle element is less than the target, then we only have
+                to check the right half, and vice versa if the middle element was greater than the target. After this,
+                the algorithm checks the middle element of the half, and repeats the same process.</p>
+            <pre>
+            // code for binary search for integer array
+            public static int binarySearch(int[] arr, int x, int low, int high){
+                while (low != high){
+                    mid = (low+high)/2;
+                    if (x = arr[mid])
+                        return mid;
+                    else if (x > arr[mid])
+                        low = mid + 1;
+                    else 
+                        high = mid -1;
+                }
+                //x is not in the array
+                return -1;
+            }
+        </pre>
+            <p>
+                <br>Time Complexity:
+                <br>Best Case: O(1), target is in the middle of the array
+                <br>Average Case: O(log n)
+                <br>Worst Case: O(log n), target is either adjacent to the middle of the array, or on either end or the
+                array
+            </p>
+            <p>
+                Now, let's move on to sorting algorithms. In the AP CS course, there are two searching algorithms which
+                are focused on, selection sort and insertion sort.
+                Selection sort is an algorithm which uses the idea of passes, counters, subarrays, and of course,
+                selection, to sort on array.
+                <br>On our first pass, the counter is set to 0. We then loop through the entire array to find the
+                largest number in the array, and move it to the end of the array. We then increment the counter by 1.
+                <br>On our second pass, the counter is 1. Once again, we loop through the array, however, we do not
+                check the last element, as it is part of a subarray which is already sorted. We select the largest
+                number in the unsorted subarray, and move it so that it is one index less than the first elemnent in the
+                sorted subarray. Finally, we increment the counter by 1.
+                <br>This process is repeated until all of the elements in the unsorted subarray are in the sorted
+                subarray, which means the whole array is sorted.
+                <br>Here is the code for selection sort in Java.
+            </p>
+            <pre>
+            //Selection sort
+            public static void selectionSort(int[] arr){
+                for (int count = 0; count &lt; arr.length; count++){
+                    int largest_index = 0;
+                    for (int i = 0; i &lt; arr.length - count; i++){
+                        if (arr[largest_index] &lt; arr[i])
+                            largest_index = i;
+                    }
+                    // swap element right in front of the sorted subarray with the largest integer in the unsorted subarray
+                    int temp = arr[largest_index];
+                    arr[largest_index] = arr[arr.length-count-1];
+                    arr[arr.length-count-1] = temp;
+                }
+            }
+        </pre>
+            <p>
+                Time Complexity:
+                <br>Best Case: O(n<sup>2</sup>), in this implementation, there are no optimisations, which means that
+                the base case, average case, and worst case have the same time complexity as they will all take the same
+                amount of steps.
+                <br>Average Case: O(n<sup>2</sup>)
+                <br>Worst Case: O(n<sup>2</sup>)
+            </p>
+            <p>
+                Now, lets finish up sorting with insertion sort. Insertion sort works on a similar algorithm to
+                selection sort, using sorted and unsorted subarrays. In this case however, the implementation is
+                slightly different.
+                <br>In the first pass of insertion sort, the first two elements in the array are compared. If the second
+                element is less than the second, they swap. This forms the sorted subarray at the beginning of the
+                array.
+                <br>In the second pass, the goal is to swap the 3rd element of the array such that it becomes sorted in
+                the sorted subarray. It keeps on comparing the element in front of it, attempting to determine if the
+                place it is in will make sure the sorted subarray stays in ascending order.
+                <br>In the third pass, the goal is to swap the 4th element of the array such that it becomes sorted in
+                the sorted subarray. This process is similar to the 2nd pass.
+                <br>These passes keep on repeating until all elements have been added to the sorted subarray, making the
+                array sorted.
+            </p>
+            <pre>
+                //insertion sort implementation in Java, taken from GeeksForGeeks
+                public static void insertionSort(int[] arr){
+                    for (int i = 1; i  &lt; arr.length; i++){
+                        int current = arr[i]; // number that we are currently comparing
+                        int j = i -1;
+
+                        //moves elements greater than the current one to the right.
+                        while (j >= 0 && arr[j] > key){
+                            arr[j + 1] = arr[j];
+                            j = j - 1;
+                        }
+                        // We insert the current here
+                        arr[j + 1] = current;
+                    }
+                }
+            </pre>
+            <p>
+                Time Complexity:
+                <br>Best Case: O(n), the array is sorted only needs to go through the for loop.
+                <br>Average Case: O(n<sup>2</sup>)
+                <br>Worst Case: O(n<sup>2</sup>), the array is in reverse order
+            </p>
+        </div>
+    </div>
+</body>

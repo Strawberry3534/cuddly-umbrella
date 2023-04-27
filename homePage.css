@@ -1,0 +1,60 @@
+body{ /* css for body */
+  font-size: 25px;
+  font-family: sans-serif;
+  background-color: blue;
+  color: yellow;
+}
+
+ul {
+
+  margin: 0px;
+  background-color: yellow;
+  list-style-type: none;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  }
+
+li{
+  float: left;
+}
+
+pre {
+  font-family: 'Courier New', Courier, monospace ;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td{
+  text-align: center;
+}
+
+li a{
+    display: block;
+    color: blue;
+    text-align: center;
+    padding: 20px 25px;
+    text-decoration: none;
+
+}
+
+li a:hover {
+    background-color:yellowgreen;
+  }
+
+h1{
+  text-align: center;
+}
+
+.aboutmediv{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainBody{
+  padding-left: 100px;
+  padding-right: 100px;
+}
