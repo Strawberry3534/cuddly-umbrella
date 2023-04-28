@@ -40,14 +40,14 @@
                 want to store with square brackets to their right. Inside of the square brackets, enter the length of
                 the array. Unlike strings, the length of an array can not be dynamically changed. </p>
             <pre>
-            //creating an integer array of length 10
-            int[] intArrTest = new int[10];
+//creating an integer array of length 10
+int[] intArrTest = new int[10];
 
-            //creating an integer array by defining its elements
-            int[] intArr = {1,2,3,4,5,6};
-            //Trying to access a value at an index that does not exist will cause an index out of bounds error
-            int n = intArr[-1]; // no negative indices
-            int k = intArr[6]; // greater than largest index, which is 5.
+//creating an integer array by defining its elements
+int[] intArr = {1,2,3,4,5,6};
+//Trying to access a value at an index that does not exist will cause an index out of bounds error
+int n = intArr[-1]; // no negative indices
+int k = intArr[6]; // greater than largest index, which is 5.
         </pre>
             <p>In order to access the elements inside of an array, we need to use the square brackets. The syntax is as
                 follows. arrName[index], where arrName is the name of the array you wish to access, and index is the
@@ -60,17 +60,17 @@
                 to sum all of those numbers. I could use a for loop that would iterate through all of the elements in
                 the array, and add their value to a variable. The code would look like this. </p>
             <pre>
-            //printing an array using a for loop
-            public static void printArr(int[] arr){
-                for (int i = 0; i &lt; arr.length; i++){
-                    System.out.print(arr[i] + " ");
-                }
-            }
+//printing an array using a for loop
+public static void printArr(int[] arr){
+    for (int i = 0; i &lt; arr.length; i++){
+        System.out.print(arr[i] + " ");
+    }
+}
 
-            //printing with the toString() method
-            public static void printArr(int[] arr){
-                System.out.println(arr.toString());
-            }
+//printing with the toString() method
+public static void printArr(int[] arr){
+    System.out.println(arr.toString());
+}
         </pre>
             <p>If you haven’t guessed already, arrays can also hold arrays inside of them. This is called a 2D array,
                 because if each array inside of the larger array was separated row by row, it would be 2 dimensional.
@@ -88,21 +88,21 @@
                 array. There is no limit to the amount of arrays that can be nested inside of each other. Of course,
                 that is on the premise that your computer has enough memory to handle an array that large. </p>
             <pre>
-            //printing a 2D array. This method also works with ragged arrays
-            public static void print2D(int[][] arr){
-                for (int i = 0; i &lt; arr.length; i++){
-                    for (int j = 0; j &lt; arr[i].length; j++){
-                        System.out.print(arr[i][j]+" ");
-                    }
-                    System.out.println();
-                }
-            }
+//printing a 2D array. This method also works with ragged arrays
+public static void print2D(int[][] arr){
+    for (int i = 0; i &lt; arr.length; i++){
+        for (int j = 0; j &lt; arr[i].length; j++){
+            System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+    }
+}
 
-            //printing with the toString() method
-            public static void printArr2D(int[][] arr){
-                for (int[] arr1D : arr)
-                    System.out.println(arr1D.toString());
-            }
+//printing with the toString() method
+public static void printArr2D(int[][] arr){
+    for (int[] arr1D : arr)
+        System.out.println(arr1D.toString());
+}
         </pre>
 
         </div>
@@ -125,16 +125,16 @@
                 conversion between wrapper classes and primitive data types are done under the hood, meaning no
                 additional lines of code need to be added for conversion.</p>
             <pre>
-            //Using an Integer ArrayList
-            ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;;
-            arr.add(1);
-            arr.add(2);
-            arr.add(3);
-            arr.set(0,4);
-            Collections.sort(arr);
-            arr.remove(1);
-            arr.clear();
-            int length = arr.size();
+//Using an Integer ArrayList
+ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;;
+arr.add(1);
+arr.add(2);
+arr.add(3);
+arr.set(0,4);
+Collections.sort(arr);
+arr.remove(1);
+arr.clear();
+int length = arr.size();
 
             </pre>
             <p>Due to the fact that ArrayLists are a class, the values of the ArrayList must be accessed or changed by
@@ -204,14 +204,14 @@
                 <br>Worst Case : O(n), happens when the target is at the end of the array
             </p>
             <pre>
-        // code for linear search for integer array
-        public static int linearSearch(int target, int[] arr){
-            for( int i = 0; i &lt; arr.length ; i++){
-                if (arr[i] == target)
-                    return i;
-            }
-            return -1
-        }
+// code for linear search for integer array
+public static int linearSearch(int target, int[] arr){
+    for( int i = 0; i &lt; arr.length ; i++){
+        if (arr[i] == target)
+            return i;
+    }
+    return -1
+}
         </pre>
 
             <p>The other version of a searching algorithm is the binary search. Binary search will only work on sorted
@@ -221,20 +221,20 @@
                 to check the right half, and vice versa if the middle element was greater than the target. After this,
                 the algorithm checks the middle element of the half, and repeats the same process.</p>
             <pre>
-            // code for binary search for integer array
-            public static int binarySearch(int[] arr, int x, int low, int high){
-                while (low != high){
-                    mid = (low+high)/2;
-                    if (x = arr[mid])
-                        return mid;
-                    else if (x > arr[mid])
-                        low = mid + 1;
-                    else 
-                        high = mid -1;
-                }
-                //x is not in the array
-                return -1;
-            }
+// code for binary search for integer array
+public static int binarySearch(int[] arr, int x, int low, int high){
+    while (low != high){
+        mid = (low+high)/2;
+        if (x = arr[mid])
+            return mid;
+        else if (x > arr[mid])
+            low = mid + 1;
+        else 
+            high = mid -1;
+    }
+    //x is not in the array
+    return -1;
+}
         </pre>
             <p>
                 <br>Time Complexity:
@@ -259,20 +259,20 @@
                 <br>Here is the code for selection sort in Java.
             </p>
             <pre>
-            //Selection sort
-            public static void selectionSort(int[] arr){
-                for (int count = 0; count &lt; arr.length; count++){
-                    int largest_index = 0;
-                    for (int i = 0; i &lt; arr.length - count; i++){
-                        if (arr[largest_index] &lt; arr[i])
-                            largest_index = i;
-                    }
-                    // swap element right in front of the sorted subarray with the largest integer in the unsorted subarray
-                    int temp = arr[largest_index];
-                    arr[largest_index] = arr[arr.length-count-1];
-                    arr[arr.length-count-1] = temp;
-                }
-            }
+//Selection sort
+public static void selectionSort(int[] arr){
+    for (int count = 0; count &lt; arr.length; count++){
+        int largest_index = 0;
+        for (int i = 0; i &lt; arr.length - count; i++){
+            if (arr[largest_index] &lt; arr[i])
+                largest_index = i;
+        }
+        // swap element right in front of the sorted subarray with the largest integer in the unsorted subarray
+        int temp = arr[largest_index];
+        arr[largest_index] = arr[arr.length-count-1];
+        arr[arr.length-count-1] = temp;
+    }
+}
         </pre>
             <p>
                 Time Complexity:
@@ -298,21 +298,21 @@
                 array sorted.
             </p>
             <pre>
-                //insertion sort implementation in Java, taken from GeeksForGeeks
-                public static void insertionSort(int[] arr){
-                    for (int i = 1; i  &lt; arr.length; i++){
-                        int current = arr[i]; // number that we are currently comparing
-                        int j = i -1;
+//insertion sort implementation in Java, taken from GeeksForGeeks
+public static void insertionSort(int[] arr){
+    for (int i = 1; i  &lt; arr.length; i++){
+        int current = arr[i]; // number that we are currently comparing
+        int j = i -1;
 
-                        //moves elements greater than the current one to the right.
-                        while (j >= 0 && arr[j] > key){
-                            arr[j + 1] = arr[j];
-                            j = j - 1;
-                        }
-                        // We insert the current here
-                        arr[j + 1] = current;
-                    }
-                }
+        //moves elements greater than the current one to the right.
+        while (j >= 0 && arr[j] > key){
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        // We insert the current here
+        arr[j + 1] = current;
+    }
+}
             </pre>
             <p>
                 Time Complexity:

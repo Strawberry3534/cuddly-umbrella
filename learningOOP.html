@@ -55,41 +55,41 @@
                 capitalized. </p>
 
             <pre>
-            //Class name must match the file name. In this case, the file is called Human.java
-            public Human{
-    
-                //Instance Variables
-                private int height;
-                private double weight;
-                private String name;
-            
-            
-                //Class constructor
-                public Human(int h, double w, String n){
-                    height = h;
-                    wieght = w;
-                    name = n;
-                }
+//Class name must match the file name. In this case, the file is called Human.java
+public Human{
 
-                //Class constructor with only the name
-                public Human(String name){
-                    Human(100,50,name);
-                }
-            
-                //Default no argument constructor
-                public Human(){
-                    Human(100,50,"No Name");
-                }
-            
-                //Class methods
-                public void doSomething(){
-                    System.out.println("I did something.");
-                }
-            
-                public void eat(){
-                    //Code for eating...
-                }
-            }
+    //Instance Variables
+    private int height;
+    private double weight;
+    private String name;
+
+
+    //Class constructor
+    public Human(int h, double w, String n){
+        height = h;
+        wieght = w;
+        name = n;
+    }
+
+    //Class constructor with only the name
+    public Human(String name){
+        Human(100,50,name);
+    }
+
+    //Default no argument constructor
+    public Human(){
+        Human(100,50,"No Name");
+    }
+
+    //Class methods
+    public void doSomething(){
+        System.out.println("I did something.");
+    }
+
+    public void eat(){
+        //Code for eating...
+    }
+}
         </pre>
             <p>When declaring attributes, or instance variables for your class, they should be set to private to prevent
                 access from outside of the class unless allowed by get and set methods. Get and set methods are methods
@@ -108,8 +108,8 @@
                 object should be declared like a variable, with the type being the name of the class. It is created by
                 using the new keyword, followed by the class constructor. .</p>
             <pre>
-            //Here we create an object using the Human class constructor
-            Human joe = new Human("Joe");
+//Here we create an object using the Human class constructor
+Human joe = new Human("Joe");
         </pre>
 
             <p>What is the benefit of using object oriented programming vs using procedural programming? Although object
@@ -175,15 +175,15 @@
                 overridden or redefined in their many subclasses.
                 //Simple abstract class
                 <pre>
-                    public abstract class Example(){
-                        //Some variable declaration
+public abstract class Example(){
+    //Some variable declaration
 
-                        public Example(){
-                            // some intialization of variables
-                        }
+    public Example(){
+        // some intialization of variables
+    }
 
-                        public abstract doSomething();
-                    }
+    public abstract doSomething();
+}
                 </pre>
             </p>
             <p>
@@ -195,25 +195,25 @@
                 not be used.
             </p>
             <pre>
-            //Simple interface
-            public interface Room {
+//Simple interface
+public interface Room {
 
-            /**
-            * Have Creature interact with DarkRoom.
-            * @param creature
-            */
-            public void enter(Creature creature);
-            /**
-            * Remove Elf from room.
-            * @param elf
-            */
-            public void exit(Creature creature);
-            /**
-            * A description of this DarkRoom
-            * @return
-            */
-            public String getName();
-            }
+/**
+* Have Creature interact with DarkRoom.
+* @param creature
+*/
+public void enter(Creature creature);
+/**
+* Remove Elf from room.
+* @param elf
+*/
+public void exit(Creature creature);
+/**
+* A description of this DarkRoom
+* @return
+*/
+public String getName();
+}
         </pre>
             <p>
                 The relationship of subclasses and superclasses can be shown with a unified modeling language diagram,
@@ -246,33 +246,33 @@
                 when the object is disguised as a more generic superclass. Heres an example with Vehicles:
             </p>
             <pre>
-                public class Vehicle{
-                    public int maxPeople;
-                    public Vehicle(int maxP){
-                        maxPeople = maxP;
-                    }
-                    public void printPassengerMax(){
-                        System.out.println("This Vehicle can hold a max of " + maxPeople + " people.");
-                    }
-                }
+public class Vehicle{
+    public int maxPeople;
+    public Vehicle(int maxP){
+        maxPeople = maxP;
+    }
+    public void printPassengerMax(){
+        System.out.println("This Vehicle can hold a max of " + maxPeople + " people.");
+    }
+}
 
-                public class Car extends Vehicle{
-                    public Car(int maxP){
-                        super(maxP);
-                    }
-                    public void printPassengerMax(){
-                        System.out.println("This Car can hold a max of " + maxPeople + " people.");
-                    }
-                }
+public class Car extends Vehicle{
+    public Car(int maxP){
+        super(maxP);
+    }
+    public void printPassengerMax(){
+        System.out.println("This Car can hold a max of " + maxPeople + " people.");
+    }
+}
 
-                public class Bus extends Vehicle{
-                    public Bus(int maxP){
-                        super(maxP);
-                    }
-                    public void printPassengerMax(){
-                        System.out.println("This Bus can hold a max of " + maxPeople + " people.");
-                    }
-                }
+public class Bus extends Vehicle{
+    public Bus(int maxP){
+        super(maxP);
+    }
+    public void printPassengerMax(){
+        System.out.println("This Bus can hold a max of " + maxPeople + " people.");
+    }
+}
             </pre>
             <p>
                 When we store Cars and Buses inside an array of Vehicles, the compiler treats every variable inside as a

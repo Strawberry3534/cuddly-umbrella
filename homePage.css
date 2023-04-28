@@ -22,6 +22,8 @@ li{
 
 pre {
   font-family: 'Courier New', Courier, monospace ;
+  background-color: grey;
+  color: white;
 }
 
 table{
@@ -41,9 +43,6 @@ li a{
     text-decoration: none;
 }
 
-pre{
-  background-color: white;
-}
 
 li a:hover {
     background-color:yellowgreen;

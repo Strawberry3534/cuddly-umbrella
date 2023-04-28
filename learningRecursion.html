@@ -42,12 +42,12 @@
                 be used in the 2nd last call, and the value in the 2nd last call can be used in the 3rd last call, etc…
             </p>
             <pre>
-                //pseudocode for a basic recursive function
-                recursiveFunction(int num):
-                    if num is base case:
-                        return some number
-                    
-                    return recursiveFunction(num + an increment)
+//pseudocode for a basic recursive function
+recursiveFunction(int num):
+    if num is base case:
+        return some number
+    
+    return recursiveFunction(num + an increment)
             </pre>
             <p>
                 Here we have a method which takes an integer. If the number is equivalent to our base case, we return.
@@ -61,23 +61,23 @@
                 a recursive statement or two.
             </p>
             <pre>
-                //Binary search recursive implementation
-                public static int binarySearch(int target, int[] arr, int low, int high){
-                    if (high >= 1){
-                        int mid = (low+high)/2;
+//Binary search recursive implementation
+public static int binarySearch(int target, int[] arr, int low, int high){
+    if (high >= 1){
+        int mid = (low+high)/2;
 
-                        // target is at mid
-                        if (arr[mid] == target)
-                            return mid;
-                        
-                        // target is left of mid
-                        if (arr[mid] > target)
-                            return binarySearch(target, arr, low, mid - 1);
+        // target is at mid
+        if (arr[mid] == target)
+            return mid;
+        
+        // target is left of mid
+        if (arr[mid] > target)
+            return binarySearch(target, arr, low, mid - 1);
 
-                        // target is right of mid
-                        return binarySearch(target, arr, mid + 1, high)
-                    }
-                }
+        // target is right of mid
+        return binarySearch(target, arr, mid + 1, high)
+    }
+}
             </pre>
             <p>
                 Recursion can also be used in place of many other iterative algorithms, such as calculating
@@ -88,18 +88,18 @@
                 Let's show the code and then explain how it works.
             </p>
             <pre>
-                //Factorial recursive implementation
-                public static int factorial(int num){
-                    if (num &lt;= 1){
-                        return 1;
-                    }
-                    
-                    return num * factorial(num -1);
-                }
+//Factorial recursive implementation
+public static int factorial(int num){
+    if (num &lt;= 1){
+        return 1;
+    }
+    
+    return num * factorial(num -1);
+}
 
-                public static void main(String[] args){
-                    factorial(5); // returns 120
-                }
+public static void main(String[] args){
+    factorial(5); // returns 120
+}
             </pre>
             <p>
                 Here, we call the factorial method, and our num is 5. Our method doesnt know what 5! is, so but it knows
@@ -119,73 +119,73 @@
                 until they are of size of length 1, and then they merge back up while maintaining a sorted order.
             </p>
             <pre>
-    //Merge sort Java, taken from GeeksForGeeks
-    void merge(int arr[], int l, int m, int r)
-    {
-        // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
- 
-        /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
- 
-        /*Copy data to temp arrays*/
-        for (int i = 0; i &lt; n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j &lt; n2; ++j)
-            R[j] = arr[m + 1 + j];
- 
-        /* Merge the temp arrays */
- 
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
- 
-        // Initial index of merged subarray array
-        int k = l;
-        while (i &lt; n1 && j &lt; n2) {
-            if (L[i] &lt;= R[j]) {
-                arr[k] = L[i];
-                i++;
-            }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
-        }
- 
-        /* Copy remaining elements of L[] if any */
-        while (i &lt; n1) {
+//Merge sort Java, taken from GeeksForGeeks
+void merge(int arr[], int l, int m, int r)
+{
+    // Find sizes of two subarrays to be merged
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    /* Create temp arrays */
+    int L[] = new int[n1];
+    int R[] = new int[n2];
+
+    /*Copy data to temp arrays*/
+    for (int i = 0; i &lt; n1; ++i)
+        L[i] = arr[l + i];
+    for (int j = 0; j &lt; n2; ++j)
+        R[j] = arr[m + 1 + j];
+
+    /* Merge the temp arrays */
+
+    // Initial indexes of first and second subarrays
+    int i = 0, j = 0;
+
+    // Initial index of merged subarray array
+    int k = l;
+    while (i &lt; n1 && j &lt; n2) {
+        if (L[i] &lt;= R[j]) {
             arr[k] = L[i];
             i++;
-            k++;
         }
- 
-        /* Copy remaining elements of R[] if any */
-        while (j &lt; n2) {
+        else {
             arr[k] = R[j];
             j++;
-            k++;
         }
+        k++;
     }
- 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    void sort(int arr[], int l, int r)
-    {
-        if (l &lt; r) {
-            // Find the middle point
-            int m = l + (r - l) / 2;
- 
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
- 
-            // Merge the sorted halves
-            merge(arr, l, m, r);
-        }
+
+    /* Copy remaining elements of L[] if any */
+    while (i &lt; n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
     }
+
+    /* Copy remaining elements of R[] if any */
+    while (j &lt; n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+// Main function that sorts arr[l..r] using
+// merge()
+void sort(int arr[], int l, int r)
+{
+    if (l &lt; r) {
+        // Find the middle point
+        int m = l + (r - l) / 2;
+
+        // Sort first and second halves
+        sort(arr, l, m);
+        sort(arr, m + 1, r);
+
+        // Merge the sorted halves
+        merge(arr, l, m, r);
+    }
+}
             </pre>
             <p>
                 
