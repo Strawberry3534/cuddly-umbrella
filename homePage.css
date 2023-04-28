@@ -39,7 +39,10 @@ li a{
     text-align: center;
     padding: 20px 25px;
     text-decoration: none;
+}
 
+pre{
+  background-color: white;
 }
 
 li a:hover {
