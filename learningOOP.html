@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="homePage.css">
+    <title>OOP</title>
+</head>
+
+<body>
+
+    <div class="head">
+        <h1>Alex Li's AP CS Portfolio</h1>
+    </div>
+    <!--Top bar for navigating between pages-->
+    <div>
+        <ul id="navBar">
+            <li id="homepage"><a href="homePage.html">Home</a></li>
+            <li id="Arrays"><a href="learningArrays.html">Arrays</a></li>
+            <li id="OOP"><a href="learningOOP.html">Object Oriented Programming (OOP)</a></li>
+            <li id="Recursion"><a href="learningRecursion.html">Recursion</a></li>
+            <li id="myWork"><a href="myWork.html">My Works</a></li>
+            <li id="Citations"><a href="citations.html">Citations</a></li>
+
+        </ul>
+    </div>
+    <div class="mainBody">
+        <div>
+            <h1>Object Oriented Porgraming, Inheritance, and Polymorphism</h1>
+        </div>
+        <!-- What is OOP?-->
+        <div>
+            <h2> What is OOP</h2>
+            <p>OOP is object oriented programming. It involves the usage of classes and objects. A class is a template
+                for an object, something like a generic blueprint for a building or item. A class will have attributes
+                and methods. Attributes are characteristics or properties of the class. For example, if we used a human
+                as an example for a class, an attribute of the human class could be height, weight, or eye color. A
+                method, or behaviour, is an action or set of actions that can be accomplished by the class. Back to the
+                human case, a human can run, it can grow, and it can eat. These would all be examples of methods. An
+                object is something that is created from the class. Looking back to the human example. We can say that
+                there is a general human class, one that can apply for all of us. We can walk, we can grow, and we can
+                eat. However, we might have different attributes, like varying heights or weights.</p>
+            <p>All objects take up a certain portion of memory in the system. This allows them to be located and
+                accessed, similar to variables. All objects will have behaviours, which are its methods, and state,
+                which is its properties, or variables. To compare classes and objects, let's look at a classic example,
+                the cookie cutter and the cookie. Cutting dough using a cookie cutter makes a cookie. The cookie cutter
+                would be the class, and the cookie would be the object. You can create many cookies, but they all come
+                from the same cookie cutter you just used. </p>
+            <p>One other property of classes is their static methods. Static methods are part of a class, but they are
+                not part of the objects they create. In the cookie cutter example, this would be how the cookie cutter
+                is sharp, but the cookie is not. This gives the static method the interesting property that it does not
+                need an object to be created to run. </p>
+
+            <p>Now, let’s look at OOP from a computer programming perspective. First of all, there can only be one
+                public class defined in every java file. This class will have the same name as the file, and should be
+                capitalized. </p>
+
+            <pre>
+            //Class name must match the file name. In this case, the file is called Human.java
+            public Human{
+    
+                //Instance Variables
+                private int height;
+                private double weight;
+                private String name;
+            
+            
+                //Class constructor
+                public Human(int h, double w, String n){
+                    height = h;
+                    wieght = w;
+                    name = n;
+                }
+
+                //Class constructor with only the name
+                public Human(String name){
+                    Human(100,50,name);
+                }
+            
+                //Default no argument constructor
+                public Human(){
+                    Human(100,50,"No Name");
+                }
+            
+                //Class methods
+                public void doSomething(){
+                    System.out.println("I did something.");
+                }
+            
+                public void eat(){
+                    //Code for eating...
+                }
+            }
+        </pre>
+            <p>When declaring attributes, or instance variables for your class, they should be set to private to prevent
+                access from outside of the class unless allowed by get and set methods. Get and set methods are methods
+                which are specifically designed to only change or access the value of an instance variable. On the other
+                hand, methods should be declared public, unless they are helper methods which should not be used outside
+                of the class. </p>
+
+            <p>Another important thing about classes is their class constructor. A class constructor is a method which
+                creates an instance of the class, or an object. All classes should have a constructor. The constructor
+                should declare the values of the instance variables, and the instance variables should not be
+                initialized with values. The constructor can take specific values so that the initial values of the
+                constructor can be changed. </p>
+
+            <p>What about an object? Earlier, it was stated that an object is the instance of a class. An object is
+                created using a class constructor, and can access all the public methods available in the class. An
+                object should be declared like a variable, with the type being the name of the class. It is created by
+                using the new keyword, followed by the class constructor. .</p>
+            <pre>
+            //Here we create an object using the Human class constructor
+            Human joe = new Human("Joe");
+        </pre>
+
+            <p>What is the benefit of using object oriented programming vs using procedural programming? Although object
+                oriented takes more time to write, it is much easier to organize your code, as each class can have a
+                specific job or function that they need to perform. This is especially important in large projects,
+                where multiple people have to collaborate together. Using object oriented programming allows the
+                programmers to separate the work easily and combine the final product together much more easily compared
+                to procedural programming.</p>
+
+        </div>
+        <!--Inheritance and Polymorphism-->
+        <div>
+            <h2>Inheritance and Polymorphism</h2>
+            <p>
+
+
+                Inheritance is when a class inherits the attributes and methods of a parent class. This can allow you to
+                create a generalized class, then let it branch off into more specialized subclasses. This is called a
+                parent-child relationship. In this case, the child class extends the parent class. Children can only
+                inherit
+                from one parent, but the line of inheritance does not have a limit. Parent classes can have multiple
+                children. All classes automatically extend the Object class.
+
+                (Insert example here)
+            </p>
+            <p>
+
+                The functions of the parent class do not have to be defined again, and they can be called inside or
+                outside
+                of the class if they are public. Because of the fact that constructors are technically methods, they are
+                also inherited from the parent class, or the super class. If you want to call the constructor of the
+                super
+                class, instead of using the name of the class, you call it using super(), with the parameters inside. If
+                you
+                want to use a constructor from the same class, use this(). You can also use super() in methods that are
+                overwritten to access the original method.
+
+                (Example of calling methods which are not defined in subclass)
+            </p>
+            <p>
+                In the example above, the method first() is not defined in classB. What Java does is that it keeps on
+                looking up the inheritance list until it finds a method first(). If it does not, it will return a
+                compile
+                time error.
+            </p>
+            <p>
+                Another thing to be careful of is the fact that the variables in a parent class which are private cannot
+                be
+                directly called in the child class. However, we can access them indirectly using get and set methods
+                from
+                the parent class. Private methods are also not inherited.
+            </p>
+            <p>
+                There are two reference types which can only be really used by inheritance. These are the abstract
+                classes
+                and interfaces. Abstract classes are classes which contain at least one abstract method. Abstract
+                methods
+                are methods which only have a head, and no body. They are declared with the abstract keyword. All
+                classes
+                which inherit the abstract class must define any abstract methods it has inherited, otherwise there will
+                be
+                a compiler error. Abstract classes can be used for classes who have one or more methods which are always
+                overridden or redefined in their many subclasses.
+                //Simple abstract class
+                <pre>
+                    public abstract class Example(){
+                        //Some variable declaration
+
+                        public Example(){
+                            // some intialization of variables
+                        }
+
+                        public abstract doSomething();
+                    }
+                </pre>
+            </p>
+            <p>
+                Interfaces are similar to abstract classes, except they only contain methods, and have no instance
+                variables, only static and final variables. Interfaces are implicitly abstract, and do not need to use
+                the
+                abstract keyword. The methods inside of an interface are also all implicitly abstract, and the keyword
+                need
+                not be used.
+            </p>
+            <pre>
+            //Simple interface
+            public interface Room {
+
+            /**
+            * Have Creature interact with DarkRoom.
+            * @param creature
+            */
+            public void enter(Creature creature);
+            /**
+            * Remove Elf from room.
+            * @param elf
+            */
+            public void exit(Creature creature);
+            /**
+            * A description of this DarkRoom
+            * @return
+            */
+            public String getName();
+            }
+        </pre>
+            <p>
+                The relationship of subclasses and superclasses can be shown with a unified modeling language diagram,
+                or
+                UML diagram. Arrows point towards the class to which they inherit from.
+
+                <br>Now, let’s look at the concept of polymorphism. Polymorphism comes into play when we are dealing
+                with object
+                declaration and initialization. Here is an example.
+            </p>
+            <p>
+                Sport s=newSport();
+                <br>Sport b=new Baseball();
+                <br>Sport t= new Tennis();
+
+                <br><br>Assuming that Baseball and Tennis inherit from the Sport class, this works! This is because both
+                Baseball
+                and Tennis “is-a” Sport. However, the same cannot be said for the other way around. Not all Baseballs
+                “is-a”
+                Sport.
+            </p>
+
+            Baseball b = new Sport(); // This would cause an error.
+            <p>
+                In code, Java needs to determine which method to call if a subclass has overwritten the method in the
+                superclass. This is done by determining the type of the object during runtime, or while the program is
+                being
+                executed. Polymorphism ensures that the correct method is called for an object with a given type,
+                especially
+                when the object is disguised as a more generic superclass. Heres an example with Vehicles:
+            </p>
+            <pre>
+                public class Vehicle{
+                    public int maxPeople;
+                    public Vehicle(int maxP){
+                        maxPeople = maxP;
+                    }
+                    public void printPassengerMax(){
+                        System.out.println("This Vehicle can hold a max of " + maxPeople + " people.");
+                    }
+                }
+
+                public class Car extends Vehicle{
+                    public Car(int maxP){
+                        super(maxP);
+                    }
+                    public void printPassengerMax(){
+                        System.out.println("This Car can hold a max of " + maxPeople + " people.");
+                    }
+                }
+
+                public class Bus extends Vehicle{
+                    public Bus(int maxP){
+                        super(maxP);
+                    }
+                    public void printPassengerMax(){
+                        System.out.println("This Bus can hold a max of " + maxPeople + " people.");
+                    }
+                }
+            </pre>
+            <p>
+                When we store Cars and Buses inside an array of Vehicles, the compiler treats every variable inside as a
+                vehicle. This is known as upcasting. So when we iterate through the array and use the
+                printPassengerMax()
+                method, it will print “This Vehicle can store x people”, rather than say, “This Bus…” or “This Car…”. In
+                order for it to print “This Bus…” or “This Car”, we need to manually downcast, because the compiler does
+                not
+                know the actual type of the objects inside of the array. We can use the instanceof keyword to determine
+                whether or not we can downcast. If you do not check, an illegal cast might occur, returning an error.
+                Although Cars and Buses originate from the same superclass, they cannot be casted into each other.
+            </p>
+        </div>
+    </div>
+</body>
