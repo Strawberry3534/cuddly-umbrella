@@ -131,7 +131,9 @@ Human joe = new Human("Joe");
                 parent-child relationship. In this case, the child class extends the parent class. Children can only
                 inherit
                 from one parent, but the line of inheritance does not have a limit. Parent classes can have multiple
-                children. All classes automatically extend the Object class.
+                children. Inheritance's main usage is when implementing multiple classes with methods that do similar
+                things. If this happens, you can use inheritance so that you can save lines of code. All classes
+                automatically extend the Object class.
 
                 (Insert example here)
             </p>
@@ -174,7 +176,7 @@ Human joe = new Human("Joe");
                 a compiler error. Abstract classes can be used for classes who have one or more methods which are always
                 overridden or redefined in their many subclasses.
                 //Simple abstract class
-                <pre>
+            <pre>
 public abstract class Example(){
     //Some variable declaration
 
@@ -215,12 +217,15 @@ public void exit(Creature creature);
 public String getName();
 }
         </pre>
+            <img src="UMLExample.jpg">
             <p>
                 The relationship of subclasses and superclasses can be shown with a unified modeling language diagram,
                 or
-                UML diagram. Arrows point towards the class to which they inherit from.
+                UML diagram. Arrows point towards the class to which they inherit from. Above is an example of what a
+                slightly more complicated program's UML diagrams and relationships would look like. This is the UML
+                diagram which me and Raymond Ouyang created for the fantasy game assignment.
 
-                <br>Now, let’s look at the concept of polymorphism. Polymorphism comes into play when we are dealing
+                <br?<br>Now, let’s look at the concept of polymorphism. Polymorphism comes into play when we are dealing
                 with object
                 declaration and initialization. Here is an example.
             </p>
@@ -247,13 +252,18 @@ public String getName();
             </p>
             <pre>
 public class Vehicle{
-    public int maxPeople;
+    private int maxPeople;
     public Vehicle(int maxP){
         maxPeople = maxP;
     }
     public void printPassengerMax(){
         System.out.println("This Vehicle can hold a max of " + maxPeople + " people.");
     }
+
+    public int maxPeople(){
+        return maxPeople;
+    }
+
 }
 
 public class Car extends Vehicle{
@@ -261,7 +271,7 @@ public class Car extends Vehicle{
         super(maxP);
     }
     public void printPassengerMax(){
-        System.out.println("This Car can hold a max of " + maxPeople + " people.");
+        System.out.println("This Car can hold a max of " + maxPeople() + " people.");
     }
 }
 
@@ -270,7 +280,7 @@ public class Bus extends Vehicle{
         super(maxP);
     }
     public void printPassengerMax(){
-        System.out.println("This Bus can hold a max of " + maxPeople + " people.");
+        System.out.println("This Bus can hold a max of " + maxPeople() + " people.");
     }
 }
             </pre>
