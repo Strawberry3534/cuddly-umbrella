@@ -8,7 +8,7 @@ public class Human{
     //Class constructor
     public Human(int h, double w){
         height = h;
-        wieght = w;
+        weight = w;
     }
 
     //Default no argument constructor
