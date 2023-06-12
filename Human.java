@@ -1,4 +1,4 @@
-public Human{
+public class Human{
     
     //Instance Variables
     int height;
